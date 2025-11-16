@@ -232,7 +232,9 @@ def scrape_chatgpt_responses(prompts,email,password):
                             prompts_until_new_chat=5
                             sb.sleep(2)
                             save_ss(sb, "Before clicking New chat button")
-                            sb.cdp.click('//div[contains(text(), "New chat")]')
+                            sb.cdp.scroll_into_view('/html/body/div[1]/div/div/div[1]/div/div[2]/nav/aside/a[1]/div[1]/div[2]/div')
+                            sb.cdp.click('/html/body/div[1]/div/div/div[1]/div/div[2]/nav/aside/a[1]/div[1]/div[2]/div')
+
                             sb.sleep(9)
                             save_ss(sb,"After clicking New chat button")
                             
@@ -417,7 +419,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     debug()
                                     continue
 
-                                screenshot_path = save_ss(sb, f"success_{i+1}")
+                                screenshot_path = save_ss(sb, f"Middle_{i+1}")
                                 debug()
                                 print(f"📌Appeared_links: {len(hrefs)}")                               
                                 sleep_dbg(sb, a=8, b=15, label="between prompts")
@@ -427,13 +429,15 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     count+=1
                                     save_ss(sb, "Before clicking New chat since links appeared are zero.")
                                     sb.sleep(2)
-                                    sb.cdp.click('//div[contains(text(), "New chat")]')
+                                    sb.cdp.scroll_into_view('/html/body/div[1]/div/div/div[1]/div/div[2]/nav/aside/a[1]/div[1]/div[2]/div')
+                                    sb.cdp.click('/html/body/div[1]/div/div/div[1]/div/div[2]/nav/aside/a[1]/div[1]/div[2]/div')
+
                                     sb.sleep(9)
                                     save_ss(sb, "After clicking New chat since links appeared are zero.")
                                     is_search_true=False
-                                    print(f"[⚠️RETRYING] Since there are zero links which appeared in the response.")
+                                    
                                     if count==if_links_do_not_appear_retry:
-                                        print(f"[✅SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
+                                        print(f"[☑️SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
                                         results.append({
                                         "prompt": prompt_raw,
                                         "appeared_links":hrefs,
@@ -442,6 +446,8 @@ def scrape_chatgpt_responses(prompts,email,password):
                                         "captcha_type": None,
                                     })
                                         i += 1
+                                    else:
+                                        print(f"[⚠️RETRYING] Since there are zero links which appeared in the response.")
                                     debug()
                                 else:
                                     debug()
