@@ -2,7 +2,7 @@ from utils import *
 import re
 
 def sanitize_prompt(p):
-    debug()
+    
     """Extract prompt text from tuple format: (index, 'text')"""
     if isinstance(p, tuple) and len(p) >= 2:
         return p[1]
@@ -15,4 +15,5 @@ def sanitize_prompt(p):
 #     debug()
 
 # if __name__ == "__main__":
+
 #     main()
