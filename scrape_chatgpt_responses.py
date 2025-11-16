@@ -218,7 +218,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                     is_search_true=False
                     prompts_until_new_chat=5
                     debug()
-                    #This is loop of chats
+                    #This is the main loop of chats
                     while not trigger_reopen and i < total:
                         debug()
                         prompt_raw = prompts[i]
@@ -231,8 +231,10 @@ def scrape_chatgpt_responses(prompts,email,password):
                             is_search_true=False
                             prompts_until_new_chat=5
                             sb.sleep(2)
+                            save_ss(sb, "Before clicking New chat button")
                             click_first(sb, 'div:contains("New chat")')
                             sb.sleep(9)
+                            save_ss(sb,"After clicking New chat button")
                             
                         if not prompt:
                             debug()
@@ -321,11 +323,15 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     prompts_until_new_chat-=1
                             
                                 # Wait finished + extra
-                                with suppress(Exception):
-                                    debug()
+                                try:
+                                    debug()                                  
                                     sb.cdp.wait_for_element_not_visible('button[data-testid="stop-button"]', timeout=90)
+                                except Exception as e:
+                                    debug()
+                                    print(f"::warning::Exception: {e}") 
                                 sleep_dbg(sb, a=10, b=15, label="extra wait after streaming")
                                 sb.sleep(10)
+                                debug()
                                 # Extract last assistant message
                                 response_selectors = [
                                     '[data-message-author-role="assistant"] .markdown',
@@ -413,19 +419,17 @@ def scrape_chatgpt_responses(prompts,email,password):
 
                                 screenshot_path = save_ss(sb, f"success_{i+1}")
                                 debug()
-                                
-                                
-                                
-                                print(f"Appeared_links: {len(hrefs)}")
-                                i += 1
+                                print(f"📌Appeared_links: {len(hrefs)}")                               
                                 sleep_dbg(sb, a=8, b=15, label="between prompts")
                                 if len(hrefs)==0:
                                     debug()
                                     if_links_appear=False
                                     count+=1
+                                    save_ss(sb, "Before clicking New chat since links appeared are zero.")
                                     sb.sleep(2)
                                     click_first(sb, 'div:contains("New chat")')
                                     sb.sleep(9)
+                                    save_ss(sb, "After clicking New chat since links appeared are zero.")
                                     is_search_true=False
                                     print(f"[⚠️RETRYING] Since there are zero links which appeared in the response.")
                                     if count==if_links_do_not_appear_retry:
@@ -437,6 +441,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                         "screenshot": screenshot_path,
                                         "captcha_type": None,
                                     })
+                                        i += 1
                                     debug()
                                 else:
                                     debug()
@@ -449,6 +454,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     "screenshot": screenshot_path,
                                     "captcha_type": None,
                                 })
+                                    i += 1
                                 debug()
 
                         except Exception as e:
