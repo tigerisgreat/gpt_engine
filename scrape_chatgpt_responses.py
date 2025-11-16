@@ -10,6 +10,7 @@ from handle_login import *
 from password_reset_chatgpt import *
 from sanatizing_prompt import *
 from prompt_sending import *
+from web_search import *
 
 def scrape_chatgpt_responses(prompts,email,password):
     debug()
@@ -134,7 +135,6 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 debug()
                                 if code and submit_chatgpt_verification_code(sb, code):
                                     lr = True
-                              
                                     debug()
                                 else:
                                     trigger_reopen = True
@@ -274,187 +274,182 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 trigger_reopen = True
                                 force_login_on_reopen = True
                                 continue
-
-                            # Type prompt
-                            debug()
-                            sb.scroll_into_view("#prompt-textarea")
-                            short_sleep_dbg(sb, label="after scroll to textarea")
-                            sb.cdp.click("#prompt-textarea")
-                            short_sleep_dbg(sb, label="after click textarea")
-                            sb.cdp.select_all("#prompt-textarea")
-                            sb.cdp.press_keys("#prompt-textarea", "")
-                            if(is_search_true==False):
+                            if_links_appear=False
+                            if_links_do_not_appear_retry=3
+                            count=0
+                            while count<if_links_do_not_appear_retry and if_links_appear==False:
+                                # Type prompt
                                 debug()
-                                #is search emoji finding search button
-                                save_ss(sb)
-                                print("[SEARCH BUTTON CLICK PREPARINGS]")
-                                sb.cdp.type("#prompt-textarea", "/")
-                                sb.sleep(2)
-                                sb.cdp.type("#prompt-textarea", "s")
+                                sb.scroll_into_view("#prompt-textarea")
+                                short_sleep_dbg(sb, label="after scroll to textarea")
+                                sb.cdp.click("#prompt-textarea")
+                                short_sleep_dbg(sb, label="after click textarea")
+                                sb.cdp.select_all("#prompt-textarea")
+                                sb.cdp.press_keys("#prompt-textarea", "")
+                                if(is_search_true==False):
+                                    debug()
+                                    #is search emoji finding search button
+                                    make_web_search_on(sb)
+                                    is_search_true=True
+                                short_sleep_dbg(sb, label="after clear textarea")
+                                debug()
                                 sb.sleep(1)
-                                sb.cdp.type("#prompt-textarea", "e")
-                                sb.sleep(1)
-                                sb.cdp.type("#prompt-textarea", "a")
-                                sb.sleep(1)
-                                sb.cdp.type("#prompt-textarea", "r")
-                                sb.sleep(1)
-                                sb.cdp.type("#prompt-textarea", "c")
-                                sb.sleep(1)
-                                sb.cdp.type("#prompt-textarea", "h")
-                                
-                                sb.sleep(1)
-                                sb.cdp.send_keys("#prompt-textarea", "\n")
-                                # # Clicking the "+" button
-                                # click_first(sb, ['button[data-testid="composer-plus-btn"]'], label="Add files button")
-                                
-                                # sb.sleep(2)
-                                # # Clicking on "... More" text
-                                # click_first(sb, ['div:contains("More")'], label="More menu option")
-                                # sb.sleep(2)
-                                
-                                # # Clicking on web search option emoji
-                                # click_first(sb, ['div:contains("Web search")'], label="Web search")
-                                sb.sleep(2)
-                                
-                                sb.cdp.type("#prompt-textarea", " ")
-                                sb.sleep(1)
-                                #is search emoji finding search button
+                                sb.cdp.type("#prompt-textarea", "/search ")
                                 sb.sleep(3)
-                                is_search_true=True
-                            short_sleep_dbg(sb, label="after clear textarea")
-                            debug()
-                            sb.sleep(1)
-                            sb.cdp.type("#prompt-textarea", "/search ")
-                            sb.sleep(3)
-                            sb.cdp.type("#prompt-textarea", prompt)
-                            short_sleep_dbg(sb, label="after typing prompt")
-                            sb.sleep(3)
-                            debug()
-                            is_prompt_sending_successful=send_prompt(sb)
-                            debug()
-                            # Send errors
-                            if is_prompt_sending_successful==False:
+                                sb.cdp.type("#prompt-textarea", prompt)
+                                short_sleep_dbg(sb, label="after typing prompt")
+                                sb.sleep(3)
                                 debug()
-                                print("Error:  Send failed -> reopen")
-                                screenshot_path = save_ss(sb, f"send_failed_{i+1}")
-                                results.append({
-                                    "prompt": prompt_raw,
-                                    "response": "Error: Send failed",
-                                    "screenshot": screenshot_path,
-                                    "captcha_type": None,
-                                })
-                                trigger_reopen = True
-                                force_login_on_reopen = True
-                                continue
-                            else:
+                                is_prompt_sending_successful=send_prompt(sb)
                                 debug()
-                                prompts_until_new_chat-=1
-                        
-                            # Wait finished + extra
-                            with suppress(Exception):
+                                # Send errors
+                                if is_prompt_sending_successful==False:
+                                    debug()
+                                    print("Error:  Send failed -> reopen")
+                                    screenshot_path = save_ss(sb, f"send_failed_{i+1}")
+                                    results.append({
+                                        "prompt": prompt_raw,
+                                        "response": "Error: Send failed",
+                                        "screenshot": screenshot_path,
+                                        "captcha_type": None,
+                                    })
+                                    trigger_reopen = True
+                                    force_login_on_reopen = True
+                                    continue
+                                else:
+                                    debug()
+                                    prompts_until_new_chat-=1
+                            
+                                # Wait finished + extra
+                                with suppress(Exception):
+                                    debug()
+                                    sb.cdp.wait_for_element_not_visible('button[data-testid="stop-button"]', timeout=90)
+                                sleep_dbg(sb, a=10, b=15, label="extra wait after streaming")
+                                sb.sleep(10)
+                                # Extract last assistant message
+                                response_selectors = [
+                                    '[data-message-author-role="assistant"] .markdown',
+                                    '[data-message-author-role="assistant"] article',
+                                    'div[data-message-author-role="assistant"]',
+                                    '[class*="message"] [class*="markdown"]',
+                                    '[role="article"] .markdown',
+                                ]
                                 debug()
-                                sb.cdp.wait_for_element_not_visible('button[data-testid="stop-button"]', timeout=90)
-                            sleep_dbg(sb, a=10, b=15, label="extra wait after streaming")
-
-                            # Extract last assistant message
-                            response_selectors = [
-                                '[data-message-author-role="assistant"] .markdown',
-                                '[data-message-author-role="assistant"] article',
-                                'div[data-message-author-role="assistant"]',
-                                '[class*="message"] [class*="markdown"]',
-                                '[role="article"] .markdown',
-                            ]
-                            debug()
-                            sb.sleep(10)
-                            elems = []
-                            for sel in response_selectors:
+                                sb.sleep(10)
+                                elems = []
+                                for sel in response_selectors:
+                                    debug()
+                                    try:
+                                        debug()
+                                        elems = sb.cdp.find_all(sel, timeout=60)
+                                        if elems:
+                                            break
+                                    except Exception:
+                                        debug()
+                                        pass
                                 debug()
+                                if not elems:
+                                    debug()
+                                    print("::error::[ERROR] No response found")
+                                    screenshot_path = save_ss(sb, f"no_response_{i+1}")
+                                    results.append({
+                                        "prompt": prompt_raw,
+                                        "response": "Error: No response",
+                                        "screenshot": screenshot_path,
+                                        "captcha_type": None,
+                                    })
+                                    i += 1
+                                    sleep_dbg(sb, a=8, b=15, label="between prompts (no response)")
+                                    continue
+                                debug()
+                                #extraction
+                                hrefs=[]
                                 try:
                                     debug()
-                                    elems = sb.cdp.find_all(sel, timeout=60)
-                                    if elems:
-                                        break
-                                except Exception:
+                                    sb.sleep(6)
+                                    latest_elem = elems[-1]               # This is the SeleniumBase element object
+                                    latest_html = latest_elem.get_html()  # HTML string for text extraction
+
+                                    # Extract plain text from the HTML
+                                    text = sb.get_beautiful_soup(latest_html).text.strip().replace("\n\n\n", "\n\n")
                                     debug()
-                                    pass
-                            debug()
-                            if not elems:
+                                    # Extract links from the Selenium element object
+                                    # links variable will contain the list of anchor element objects (<a> tags) from Selenium.
+                                    # hrefs variable will contain just the URLs (strings) extracted from those anchor elements.
+                                    links = latest_elem.query_selector_all("a")
+                                    debug()
+                                    hrefs = [link.get_attribute("href") for link in links]
+                                    debug()
+                                except Exception as e:
+                                    debug()
+                                    print("[WARNING] Extract failed:", str(e)[:200])
+                                    screenshot_path = save_ss(sb, f"extract_failed_{i+1}")
+                                    results.append({
+                                        "prompt": prompt_raw,
+                                        "appeared_links": hrefs,
+                                        "response": "Error: Extract failed",
+                                        "screenshot": screenshot_path,
+                                        "captcha_type": None,
+                                    })
+                                    i += 1
+                                    sleep_dbg(sb, a=8, b=15, label="between prompts (extract failed)")
+                                    continue
+                                
                                 debug()
-                                print("::error::[ERROR] No response found")
-                                screenshot_path = save_ss(sb, f"no_response_{i+1}")
-                                results.append({
-                                    "prompt": prompt_raw,
-                                    "response": "Error: No response",
-                                    "screenshot": screenshot_path,
-                                    "captcha_type": None,
-                                })
-                                i += 1
-                                sleep_dbg(sb, a=8, b=15, label="between prompts (no response)")
-                                continue
-                            debug()
-                            #extraction
-                            hrefs=[]
-                            try:
-                                debug()
-                                sb.sleep(6)
-                                latest_elem = elems[-1]               # This is the SeleniumBase element object
-                                latest_html = latest_elem.get_html()  # HTML string for text extraction
+                                if not text or len(text) < 10:
+                                    debug()
+                                    print("[WARNING] Response too short")
+                                    screenshot_path = save_ss(sb, f"empty_response_{i+1}")
+                                    results.append({
+                                        "prompt": prompt_raw,
+                                        "response": "Error: Empty response",
+                                        "screenshot": screenshot_path,
+                                        "captcha_type": None,
+                                    })
+                                    i += 1
+                                    sleep_dbg(sb, a=8, b=15, label="between prompts (short response)")
+                                    debug()
+                                    continue
 
-                                # Extract plain text from the HTML
-                                text = sb.get_beautiful_soup(latest_html).text.strip().replace("\n\n\n", "\n\n")
+                                screenshot_path = save_ss(sb, f"success_{i+1}")
                                 debug()
-                                # Extract links from the Selenium element object
-                                # links variable will contain the list of anchor element objects (<a> tags) from Selenium.
-                                # hrefs variable will contain just the URLs (strings) extracted from those anchor elements.
-                                links = latest_elem.query_selector_all("a")
-                                debug()
-                                hrefs = [link.get_attribute("href") for link in links]
-                                debug()
-                            except Exception as e:
-                                debug()
-                                print("[WARNING] Extract failed:", str(e)[:200])
-                                screenshot_path = save_ss(sb, f"extract_failed_{i+1}")
-                                results.append({
+                                
+                                
+                                
+                                print(f"Appeared_links: {len(hrefs)}")
+                                i += 1
+                                sleep_dbg(sb, a=8, b=15, label="between prompts")
+                                if len(hrefs)==0:
+                                    debug()
+                                    if_links_appear=False
+                                    count+=1
+                                    sb.sleep(2)
+                                    click_first(sb, 'div:contains("New chat")')
+                                    sb.sleep(9)
+                                    is_search_true=False
+                                    print(f"[⚠️RETRYING] Since there are zero links which appeared in the response.")
+                                    if count==if_links_do_not_appear_retry:
+                                        print(f"[✅SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
+                                        results.append({
+                                        "prompt": prompt_raw,
+                                        "appeared_links":hrefs,
+                                        "response": text,
+                                        "screenshot": screenshot_path,
+                                        "captcha_type": None,
+                                    })
+                                    debug()
+                                else:
+                                    debug()
+                                    if_links_appear=True
+                                    print(f"[✅SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
+                                    results.append({
                                     "prompt": prompt_raw,
-                                    "appeared_links": hrefs,
-                                    "response": "Error: Extract failed",
+                                    "appeared_links":hrefs,
+                                    "response": text,
                                     "screenshot": screenshot_path,
                                     "captcha_type": None,
                                 })
-                                i += 1
-                                sleep_dbg(sb, a=8, b=15, label="between prompts (extract failed)")
-                                continue
-                            
-                            debug()
-                            if not text or len(text) < 10:
                                 debug()
-                                print("[WARNING] Response too short")
-                                screenshot_path = save_ss(sb, f"empty_response_{i+1}")
-                                results.append({
-                                    "prompt": prompt_raw,
-                                    "response": "Error: Empty response",
-                                    "screenshot": screenshot_path,
-                                    "captcha_type": None,
-                                })
-                                i += 1
-                                sleep_dbg(sb, a=8, b=15, label="between prompts (short response)")
-                                debug()
-                                continue
-
-                            screenshot_path = save_ss(sb, f"success_{i+1}")
-                            debug()
-                            results.append({
-                                "prompt": prompt_raw,
-                                "appeared_links":hrefs,
-                                "response": text,
-                                "screenshot": screenshot_path,
-                                "captcha_type": None,
-                            })
-                            print(f"[✅SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
-                            debug()
-                            print(f"Appeared_links: {len(hrefs)}")
-                            i += 1
-                            sleep_dbg(sb, a=8, b=15, label="between prompts")
 
                         except Exception as e:
                             debug()
