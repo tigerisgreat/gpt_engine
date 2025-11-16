@@ -14,7 +14,6 @@ from web_search import *
 
 def scrape_chatgpt_responses(prompts,email,password):
     debug()
-    
     results = []
     total = len(prompts)
     i = 0
@@ -299,7 +298,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 short_sleep_dbg(sb, label="after clear textarea")
                                 debug()
                                 sb.sleep(1)
-                                sb.cdp.type("#prompt-textarea", "/search ")
+                                sb.cdp.type("#prompt-textarea", "Search using web: ")
                                 sb.sleep(3)
                                 sb.cdp.type("#prompt-textarea", prompt)
                                 short_sleep_dbg(sb, label="after typing prompt")
@@ -511,4 +510,3 @@ def scrape_chatgpt_responses(prompts,email,password):
     print("=" * 80 + "\n")
     debug()
     return results
-
