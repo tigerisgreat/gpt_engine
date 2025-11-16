@@ -14,6 +14,7 @@ from web_search import *
 
 def scrape_chatgpt_responses(prompts,email,password):
     debug()
+    
     results = []
     total = len(prompts)
     i = 0
@@ -510,3 +511,4 @@ def scrape_chatgpt_responses(prompts,email,password):
     print("=" * 80 + "\n")
     debug()
     return results
+
