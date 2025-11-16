@@ -298,7 +298,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 short_sleep_dbg(sb, label="after clear textarea")
                                 debug()
                                 sb.sleep(1)
-                                sb.cdp.type("#prompt-textarea", "Search using web: ")
+                                sb.cdp.type("#prompt-textarea", "Strictly Perform a web search for this using webgpt- ")
                                 sb.sleep(3)
                                 sb.cdp.type("#prompt-textarea", prompt)
                                 short_sleep_dbg(sb, label="after typing prompt")
