@@ -232,7 +232,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                             prompts_until_new_chat=5
                             sb.sleep(2)
                             save_ss(sb, "Before clicking New chat button")
-                            click_first(sb, 'div:contains("New chat")')
+                            sb.cdp.click('//div[contains(text(), "New chat")]')
                             sb.sleep(9)
                             save_ss(sb,"After clicking New chat button")
                             
@@ -427,7 +427,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     count+=1
                                     save_ss(sb, "Before clicking New chat since links appeared are zero.")
                                     sb.sleep(2)
-                                    click_first(sb, 'div:contains("New chat")')
+                                    sb.cdp.click('//div[contains(text(), "New chat")]')
                                     sb.sleep(9)
                                     save_ss(sb, "After clicking New chat since links appeared are zero.")
                                     is_search_true=False
