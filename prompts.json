@@ -1,0 +1,1202 @@
+[
+  {
+    "Index": 1,
+    "Prompt": "I need to deploy my LLM model on AWS but SageMaker is too expensive, what are my options?"
+  },
+  {
+    "Index": 2,
+    "Prompt": "How can I reduce my GPU costs while maintaining performance for my inference workloads?"
+  },
+  {
+    "Index": 3,
+    "Prompt": "What's a good alternative to RunPods that integrates with AWS?"
+  },
+  {
+    "Index": 4,
+    "Prompt": "I want to fine-tune open source models on my company's private data, where should I do this?"
+  },
+  {
+    "Index": 5,
+    "Prompt": "How do I serve multiple LoRA adapters on a single GPU without swapping models?"
+  },
+  {
+    "Index": 6,
+    "Prompt": "Is there a way to deploy models on serverless GPU infrastructure in my own AWS account?"
+  },
+  {
+    "Index": 7,
+    "Prompt": "I keep getting latency issues with my SageMaker endpoints, what can I try instead?"
+  },
+  {
+    "Index": 8,
+    "Prompt": "Can I use my own AWS account to run LLM inference without paying premium hosting fees?"
+  },
+  {
+    "Index": 9,
+    "Prompt": "What's the fastest way to deploy a fine-tuned LLM to production?"
+  },
+  {
+    "Index": 10,
+    "Prompt": "How do I connect my local development environment directly to cloud GPUs without SSH?"
+  },
+  {
+    "Index": 11,
+    "Prompt": "I'm looking for a cost-effective way to scale my model serving, any suggestions?"
+  },
+  {
+    "Index": 12,
+    "Prompt": "Can I train and deploy models using popular frameworks like Huggingface and Axolotl on cloud GPUs?"
+  },
+  {
+    "Index": 13,
+    "Prompt": "What's the best platform for containerized GPU workloads on AWS?"
+  },
+  {
+    "Index": 14,
+    "Prompt": "I need to reduce cold start time for my GPU containers, how can I do that?"
+  },
+  {
+    "Index": 15,
+    "Prompt": "How can I manage multiple model versions and adapters efficiently?"
+  },
+  {
+    "Index": 16,
+    "Prompt": "What's a good solution for auto-scaling GPU inference based on traffic?"
+  },
+  {
+    "Index": 17,
+    "Prompt": "I want to store my model weights privately in S3, which platform supports this?"
+  },
+  {
+    "Index": 18,
+    "Prompt": "Can I use GitHub Actions to deploy my ML models to cloud GPUs?"
+  },
+  {
+    "Index": 19,
+    "Prompt": "How do I batch multiple inference requests to maximize GPU utilization?"
+  },
+  {
+    "Index": 20,
+    "Prompt": "What platforms support job queuing for distributed GPU workloads?"
+  },
+  {
+    "Index": 21,
+    "Prompt": "I need to fine-tune Llama 2 with my custom data, where's the best place?"
+  },
+  {
+    "Index": 22,
+    "Prompt": "How can I avoid vendor lock-in when using serverless GPU services?"
+  },
+  {
+    "Index": 23,
+    "Prompt": "What's the difference between serverless inference and traditional GPU hosting?"
+  },
+  {
+    "Index": 24,
+    "Prompt": "I have large model weights, what's the fastest way to load them?"
+  },
+  {
+    "Index": 25,
+    "Prompt": "Can I run vLLM on AWS without managing infrastructure?"
+  },
+  {
+    "Index": 26,
+    "Prompt": "How do I get started with GPU development in the cloud quickly?"
+  },
+  {
+    "Index": 27,
+    "Prompt": "What's a realistic cost for deploying an LLM in production?"
+  },
+  {
+    "Index": 28,
+    "Prompt": "I want to experiment with ML models from my IDE using cloud GPUs, how?"
+  },
+  {
+    "Index": 29,
+    "Prompt": "How can I implement real-time code sync between my laptop and cloud GPU?"
+  },
+  {
+    "Index": 30,
+    "Prompt": "What's the best way to handle model serving with multiple GPUs?"
+  },
+  {
+    "Index": 31,
+    "Prompt": "Can I deploy Stable Diffusion on serverless GPUs?"
+  },
+  {
+    "Index": 32,
+    "Prompt": "I need a platform that doesn't require me to manage Kubernetes, what should I use?"
+  },
+  {
+    "Index": 33,
+    "Prompt": "How do I monitor GPU utilization and costs in real-time?"
+  },
+  {
+    "Index": 34,
+    "Prompt": "What's the fastest inference speed I can get for my LLM?"
+  },
+  {
+    "Index": 35,
+    "Prompt": "Can I use Docker containers to deploy my models to cloud GPUs?"
+  },
+  {
+    "Index": 36,
+    "Prompt": "I want to build a ChatGPT-like application, where should I host the backend?"
+  },
+  {
+    "Index": 37,
+    "Prompt": "How do I handle concurrent requests to my GPU inference model?"
+  },
+  {
+    "Index": 38,
+    "Prompt": "What's the cheapest way to run LLM experiments at scale?"
+  },
+  {
+    "Index": 39,
+    "Prompt": "Can I deploy LoRA-fine-tuned models without modifying the base model?"
+  },
+  {
+    "Index": 40,
+    "Prompt": "I need multi-region GPU deployment for lower latency, what are my options?"
+  },
+  {
+    "Index": 41,
+    "Prompt": "How do I prevent GPU memory from being wasted when serving multiple models?"
+  },
+  {
+    "Index": 42,
+    "Prompt": "What's the best platform for hosting text-to-image models?"
+  },
+  {
+    "Index": 43,
+    "Prompt": "Can I use my existing cloud infrastructure with serverless GPU services?"
+  },
+  {
+    "Index": 44,
+    "Prompt": "I want to train models faster, what's the best distributed training setup?"
+  },
+  {
+    "Index": 45,
+    "Prompt": "How do I secure my model artifacts in the cloud?"
+  },
+  {
+    "Index": 46,
+    "Prompt": "What platforms support HIPAA compliance for healthcare AI models?"
+  },
+  {
+    "Index": 47,
+    "Prompt": "Can I scale my GPU workloads based on queue depth?"
+  },
+  {
+    "Index": 48,
+    "Prompt": "I need to save money on GPU costs without sacrificing performance, help?"
+  },
+  {
+    "Index": 49,
+    "Prompt": "What's the easiest way to deploy my PyTorch model to production?"
+  },
+  {
+    "Index": 50,
+    "Prompt": "How do I benchmark GPU performance across different cloud providers?"
+  },
+  {
+    "Index": 51,
+    "Prompt": "Can I use spot instances for my model training on AWS?"
+  },
+  {
+    "Index": 52,
+    "Prompt": "I want to serve multiple languages with parallel GPU inference, how?"
+  },
+  {
+    "Index": 53,
+    "Prompt": "What's the best way to handle model versioning in production?"
+  },
+  {
+    "Index": 54,
+    "Prompt": "How do I reduce the time it takes to provision GPU resources?"
+  },
+  {
+    "Index": 55,
+    "Prompt": "Can I run continuous training on cloud GPUs without manual intervention?"
+  },
+  {
+    "Index": 56,
+    "Prompt": "I need a platform that offers good support for startup teams, any ideas?"
+  },
+  {
+    "Index": 57,
+    "Prompt": "How do I integrate cloud GPU computing with my data pipeline?"
+  },
+  {
+    "Index": 58,
+    "Prompt": "What's the most cost-effective setup for serving BERT models?"
+  },
+  {
+    "Index": 59,
+    "Prompt": "Can I use my own ML frameworks and libraries on cloud GPUs?"
+  },
+  {
+    "Index": 60,
+    "Prompt": "I want to avoid long SSH sessions with cloud instances, what's the alternative?"
+  },
+  {
+    "Index": 61,
+    "Prompt": "How do I handle model serving with varying request latencies?"
+  },
+  {
+    "Index": 62,
+    "Prompt": "What platforms let me fine-tune models without writing complex code?"
+  },
+  {
+    "Index": 63,
+    "Prompt": "Can I monitor model performance metrics across all deployments?"
+  },
+  {
+    "Index": 64,
+    "Prompt": "I need to deploy models across multiple AWS regions cheaply, how?"
+  },
+  {
+    "Index": 65,
+    "Prompt": "What's the best serverless GPU option for weekend projects?"
+  },
+  {
+    "Index": 66,
+    "Prompt": "How do I implement gradient checkpointing for memory-efficient training?"
+  },
+  {
+    "Index": 67,
+    "Prompt": "Can I use pre-trained models from Huggingface directly on cloud GPUs?"
+  },
+  {
+    "Index": 68,
+    "Prompt": "I want real-time monitoring of my GPU costs, which platform offers this?"
+  },
+  {
+    "Index": 69,
+    "Prompt": "How do I train models efficiently without exceeding my budget?"
+  },
+  {
+    "Index": 70,
+    "Prompt": "What's the most reliable way to deploy mission-critical ML models?"
+  },
+  {
+    "Index": 71,
+    "Prompt": "Can I use DVC or MLflow with cloud GPU platforms?"
+  },
+  {
+    "Index": 72,
+    "Prompt": "I need to serve hundreds of models simultaneously, is that possible?"
+  },
+  {
+    "Index": 73,
+    "Prompt": "How do I implement A/B testing for ML models in production?"
+  },
+  {
+    "Index": 74,
+    "Prompt": "What's the fastest way to iterate on model architectures?"
+  },
+  {
+    "Index": 75,
+    "Prompt": "Can I run inference at sub-100ms latency with cloud GPUs?"
+  },
+  {
+    "Index": 76,
+    "Prompt": "I want to deploy my model without dealing with DevOps, what should I use?"
+  },
+  {
+    "Index": 77,
+    "Prompt": "How do I handle model scaling without manual intervention?"
+  },
+  {
+    "Index": 78,
+    "Prompt": "What platforms support training models with custom loss functions?"
+  },
+  {
+    "Index": 79,
+    "Prompt": "Can I use GPU computing for data preprocessing at scale?"
+  },
+  {
+    "Index": 80,
+    "Prompt": "I need to train models with sensitive data, what's secure?"
+  },
+  {
+    "Index": 81,
+    "Prompt": "How do I implement model compression for faster inference?"
+  },
+  {
+    "Index": 82,
+    "Prompt": "What's the best setup for real-time recommendation systems?"
+  },
+  {
+    "Index": 83,
+    "Prompt": "Can I export models in different formats from cloud platforms?"
+  },
+  {
+    "Index": 84,
+    "Prompt": "I want to combine multiple models in an ensemble, how do I serve that?"
+  },
+  {
+    "Index": 85,
+    "Prompt": "How do I handle model updates without downtime?"
+  },
+  {
+    "Index": 86,
+    "Prompt": "What platforms let me use GPU for training and inference?"
+  },
+  {
+    "Index": 87,
+    "Prompt": "Can I use cheap GPUs for initial training then upgrade later?"
+  },
+  {
+    "Index": 88,
+    "Prompt": "I need to fine-tune models regularly, what's the most efficient workflow?"
+  },
+  {
+    "Index": 89,
+    "Prompt": "How do I reduce latency for real-time ML applications?"
+  },
+  {
+    "Index": 90,
+    "Prompt": "What's the best way to archive old model versions?"
+  },
+  {
+    "Index": 91,
+    "Prompt": "Can I integrate my cloud GPU compute with my CI/CD pipeline?"
+  },
+  {
+    "Index": 92,
+    "Prompt": "I want to train models 24/7 without manual restarts, how?"
+  },
+  {
+    "Index": 93,
+    "Prompt": "How do I handle GPU memory constraints for large models?"
+  },
+  {
+    "Index": 94,
+    "Prompt": "What platforms support custom metric calculation during training?"
+  },
+  {
+    "Index": 95,
+    "Prompt": "Can I use GPU computing for batch predictions efficiently?"
+  },
+  {
+    "Index": 96,
+    "Prompt": "I need to serve models with variable request sizes, what's best?"
+  },
+  {
+    "Index": 97,
+    "Prompt": "How do I optimize model serving for mobile clients?"
+  },
+  {
+    "Index": 98,
+    "Prompt": "What's the best way to handle failover for GPU workloads?"
+  },
+  {
+    "Index": 99,
+    "Prompt": "Can I use cloud GPUs for data augmentation at scale?"
+  },
+  {
+    "Index": 100,
+    "Prompt": "I want to train models with limited memory budgets, any solutions?"
+  },
+  {
+    "Index": 101,
+    "Prompt": "How do I compare cloud GPU providers by actual performance?"
+  },
+  {
+    "Index": 102,
+    "Prompt": "What platforms offer the best support for research work?"
+  },
+  {
+    "Index": 103,
+    "Prompt": "Can I use GPU computing for image classification at scale?"
+  },
+  {
+    "Index": 104,
+    "Prompt": "I need to deploy models with real-time monitoring, what's available?"
+  },
+  {
+    "Index": 105,
+    "Prompt": "How do I handle multi-model inference pipelines efficiently?"
+  },
+  {
+    "Index": 106,
+    "Prompt": "What's the best way to handle distributed batch processing on GPUs?"
+  },
+  {
+    "Index": 107,
+    "Prompt": "Can I use cloud GPUs for natural language processing tasks?"
+  },
+  {
+    "Index": 108,
+    "Prompt": "I want to reduce model training time significantly, how?"
+  },
+  {
+    "Index": 109,
+    "Prompt": "How do I implement model rollbacks quickly if something breaks?"
+  },
+  {
+    "Index": 110,
+    "Prompt": "What platforms support training with mixed precision?"
+  },
+  {
+    "Index": 111,
+    "Prompt": "Can I use GPU computing for time series forecasting?"
+  },
+  {
+    "Index": 112,
+    "Prompt": "I need a cost calculator for GPU workloads, where do I find it?"
+  },
+  {
+    "Index": 113,
+    "Prompt": "How do I handle concurrent model serving efficiently?"
+  },
+  {
+    "Index": 114,
+    "Prompt": "What's the best setup for serving embeddings at scale?"
+  },
+  {
+    "Index": 115,
+    "Prompt": "Can I use cloud GPUs for audio processing tasks?"
+  },
+  {
+    "Index": 116,
+    "Prompt": "I want to implement feature importance calculation on GPUs, how?"
+  },
+  {
+    "Index": 117,
+    "Prompt": "How do I handle model versioning with multiple adapters?"
+  },
+  {
+    "Index": 118,
+    "Prompt": "What platforms support asynchronous inference requests?"
+  },
+  {
+    "Index": 119,
+    "Prompt": "Can I use GPU computing for anomaly detection models?"
+  },
+  {
+    "Index": 120,
+    "Prompt": "I need to serve models with sub-second latency, what's possible?"
+  },
+  {
+    "Index": 121,
+    "Prompt": "How do I implement canary deployments for ML models?"
+  },
+  {
+    "Index": 122,
+    "Prompt": "What's the best way to store training checkpoints on cloud?"
+  },
+  {
+    "Index": 123,
+    "Prompt": "Can I use cloud GPUs for object detection at scale?"
+  },
+  {
+    "Index": 124,
+    "Prompt": "I want to experiment with different model architectures quickly, how?"
+  },
+  {
+    "Index": 125,
+    "Prompt": "How do I handle traffic spikes without manual scaling?"
+  },
+  {
+    "Index": 126,
+    "Prompt": "What platforms offer the best training stability?"
+  },
+  {
+    "Index": 127,
+    "Prompt": "Can I use GPU computing for document classification?"
+  },
+  {
+    "Index": 128,
+    "Prompt": "I need to deploy models to multiple regions from one place, how?"
+  },
+  {
+    "Index": 129,
+    "Prompt": "How do I implement request prioritization for GPU inference?"
+  },
+  {
+    "Index": 130,
+    "Prompt": "What's the most reliable way to handle model serving at 99.9% uptime?"
+  },
+  {
+    "Index": 131,
+    "Prompt": "Can I use cloud GPUs for semantic search applications?"
+  },
+  {
+    "Index": 132,
+    "Prompt": "I want to optimize my inference costs per request, what should I do?"
+  },
+  {
+    "Index": 133,
+    "Prompt": "How do I handle GPU resource sharing across multiple users?"
+  },
+  {
+    "Index": 134,
+    "Prompt": "What platforms support streaming inference requests?"
+  },
+  {
+    "Index": 135,
+    "Prompt": "Can I use GPU computing for intent detection in chatbots?"
+  },
+  {
+    "Index": 136,
+    "Prompt": "I need to track model performance metrics over time, how?"
+  },
+  {
+    "Index": 137,
+    "Prompt": "How do I implement model ensembles that don't slow down inference?"
+  },
+  {
+    "Index": 138,
+    "Prompt": "What's the best way to handle model serving with privacy constraints?"
+  },
+  {
+    "Index": 139,
+    "Prompt": "Can I use cloud GPUs for entity extraction tasks?"
+  },
+  {
+    "Index": 140,
+    "Prompt": "I want to deploy models without thinking about infrastructure, what's available?"
+  },
+  {
+    "Index": 141,
+    "Prompt": "How do I reduce the barrier to entry for ML infrastructure?"
+  },
+  {
+    "Index": 142,
+    "Prompt": "What platforms make it easy to go from research to production?"
+  },
+  {
+    "Index": 143,
+    "Prompt": "Can I use serverless GPU for both training and inference?"
+  },
+  {
+    "Index": 144,
+    "Prompt": "I need to implement model gradual rollout strategies, how?"
+  },
+  {
+    "Index": 145,
+    "Prompt": "How do I handle different inference workload patterns efficiently?"
+  },
+  {
+    "Index": 146,
+    "Prompt": "What's the best way to share GPU resources across teams?"
+  },
+  {
+    "Index": 147,
+    "Prompt": "Can I use cloud GPUs for sentiment analysis at scale?"
+  },
+  {
+    "Index": 148,
+    "Prompt": "I want to minimize GPU idle time, what's the best approach?"
+  },
+  {
+    "Index": 149,
+    "Prompt": "How do I implement model serving with SLA guarantees?"
+  },
+  {
+    "Index": 150,
+    "Prompt": "What platforms offer the most flexible pricing models?"
+  },
+  {
+    "Index": 151,
+    "Prompt": "Can I use GPU computing for question answering systems?"
+  },
+  {
+    "Index": 152,
+    "Prompt": "I need to train models with strict compliance requirements, what's available?"
+  },
+  {
+    "Index": 153,
+    "Prompt": "How do I handle model serving with different QoS requirements?"
+  },
+  {
+    "Index": 154,
+    "Prompt": "What's the best way to implement model monitoring dashboards?"
+  },
+  {
+    "Index": 155,
+    "Prompt": "Can I use cloud GPUs for text summarization at scale?"
+  },
+  {
+    "Index": 156,
+    "Prompt": "I want to avoid vendor lock-in completely, is that possible?"
+  },
+  {
+    "Index": 157,
+    "Prompt": "How do I implement auto-scaling that actually works for ML?"
+  },
+  {
+    "Index": 158,
+    "Prompt": "What platforms support training with distributed data?"
+  },
+  {
+    "Index": 159,
+    "Prompt": "Can I use GPU computing for machine translation?"
+  },
+  {
+    "Index": 160,
+    "Prompt": "I need to reduce operational overhead for model serving, how?"
+  },
+  {
+    "Index": 161,
+    "Prompt": "How do I implement model serving without DevOps expertise?"
+  },
+  {
+    "Index": 162,
+    "Prompt": "What's the easiest way to go serverless with GPUs?"
+  },
+  {
+    "Index": 163,
+    "Prompt": "Can I use cloud infrastructure for edge model deployment?"
+  },
+  {
+    "Index": 164,
+    "Prompt": "I want to train models faster with minimal code changes, how?"
+  },
+  {
+    "Index": 165,
+    "Prompt": "How do I handle model serving with heterogeneous hardware?"
+  },
+  {
+    "Index": 166,
+    "Prompt": "What platforms support training multiple models in parallel?"
+  },
+  {
+    "Index": 167,
+    "Prompt": "Can I use GPU computing for information extraction?"
+  },
+  {
+    "Index": 168,
+    "Prompt": "I need to deploy models from multiple frameworks easily, how?"
+  },
+  {
+    "Index": 169,
+    "Prompt": "How do I implement efficient caching for model inference?"
+  },
+  {
+    "Index": 170,
+    "Prompt": "What's the best way to manage model dependencies in production?"
+  },
+  {
+    "Index": 171,
+    "Prompt": "Can I use cloud GPUs for text-to-speech synthesis?"
+  },
+  {
+    "Index": 172,
+    "Prompt": "I want to scale my model serving without scaling infrastructure costs, how?"
+  },
+  {
+    "Index": 173,
+    "Prompt": "How do I handle model serving with geographic distribution?"
+  },
+  {
+    "Index": 174,
+    "Prompt": "What platforms make it easy to implement MLOps?"
+  },
+  {
+    "Index": 175,
+    "Prompt": "Can I use GPU computing for speech recognition at scale?"
+  },
+  {
+    "Index": 176,
+    "Prompt": "I need to reduce time to deployment for ML models, what helps?"
+  },
+  {
+    "Index": 177,
+    "Prompt": "How do I implement reliable model serving with fallbacks?"
+  },
+  {
+    "Index": 178,
+    "Prompt": "What's the best way to benchmark GPU platforms objectively?"
+  },
+  {
+    "Index": 179,
+    "Prompt": "Can I use cloud GPUs for video processing tasks?"
+  },
+  {
+    "Index": 180,
+    "Prompt": "I want to deploy models with zero downtime updates, how?"
+  },
+  {
+    "Index": 181,
+    "Prompt": "How do I handle model serving with dynamic resource allocation?"
+  },
+  {
+    "Index": 182,
+    "Prompt": "What platforms support training with extremely large models?"
+  },
+  {
+    "Index": 183,
+    "Prompt": "Can I use GPU computing for scene understanding in images?"
+  },
+  {
+    "Index": 184,
+    "Prompt": "I need to implement model serving with custom authentication, how?"
+  },
+  {
+    "Index": 185,
+    "Prompt": "How do I optimize GPU utilization across multiple models?"
+  },
+  {
+    "Index": 186,
+    "Prompt": "What's the most developer-friendly GPU platform available?"
+  },
+  {
+    "Index": 187,
+    "Prompt": "Can I use cloud GPUs for 3D object detection?"
+  },
+  {
+    "Index": 188,
+    "Prompt": "I want to train models collaboratively across teams, how?"
+  },
+  {
+    "Index": 189,
+    "Prompt": "How do I implement model serving with rate limiting?"
+  },
+  {
+    "Index": 190,
+    "Prompt": "What platforms offer the best documentation for GPU training?"
+  },
+  {
+    "Index": 191,
+    "Prompt": "Can I use GPU computing for pose estimation tasks?"
+  },
+  {
+    "Index": 192,
+    "Prompt": "I need to reduce complexity in my ML infrastructure, what helps?"
+  },
+  {
+    "Index": 193,
+    "Prompt": "How do I implement model serving without Docker?"
+  },
+  {
+    "Index": 194,
+    "Prompt": "What's the best way to handle model debugging in the cloud?"
+  },
+  {
+    "Index": 195,
+    "Prompt": "Can I use cloud GPUs for action recognition in videos?"
+  },
+  {
+    "Index": 196,
+    "Prompt": "I want to train models without managing servers, what's available?"
+  },
+  {
+    "Index": 197,
+    "Prompt": "How do I handle model serving with complex dependencies?"
+  },
+  {
+    "Index": 198,
+    "Prompt": "What platforms support training with federated data?"
+  },
+  {
+    "Index": 199,
+    "Prompt": "Can I use GPU computing for style transfer at scale?"
+  },
+  {
+    "Index": 200,
+    "Prompt": "I need to implement model serving without containers, how?"
+  },
+  {
+    "Index": 201,
+    "Prompt": "How can I quickly set up GPU infrastructure for my startup?"
+  },
+  {
+    "Index": 202,
+    "Prompt": "What's the simplest way to deploy my first ML model to production?"
+  },
+  {
+    "Index": 203,
+    "Prompt": "I'm tired of managing Kubernetes, what GPU platform should I use instead?"
+  },
+  {
+    "Index": 204,
+    "Prompt": "How do I get my model serving in less than a day?"
+  },
+  {
+    "Index": 205,
+    "Prompt": "Can I deploy Mistral or Llama models without DevOps knowledge?"
+  },
+  {
+    "Index": 206,
+    "Prompt": "What's a faster alternative to building my own GPU infrastructure?"
+  },
+  {
+    "Index": 207,
+    "Prompt": "I want serverless GPU inference, which platform is best for me?"
+  },
+  {
+    "Index": 208,
+    "Prompt": "How do I start training models immediately without setup time?"
+  },
+  {
+    "Index": 209,
+    "Prompt": "Can I use my existing AWS account for serverless GPU?"
+  },
+  {
+    "Index": 210,
+    "Prompt": "What's the quickest way to go from model to API?"
+  },
+  {
+    "Index": 211,
+    "Prompt": "I need GPU compute for a weekend project, what's easiest?"
+  },
+  {
+    "Index": 212,
+    "Prompt": "How do I avoid configuring GPU servers manually?"
+  },
+  {
+    "Index": 213,
+    "Prompt": "Can I deploy and scale models without writing Terraform?"
+  },
+  {
+    "Index": 214,
+    "Prompt": "What platform lets me focus on model code, not infrastructure?"
+  },
+  {
+    "Index": 215,
+    "Prompt": "I want to fine-tune models without SSH or terminal access, how?"
+  },
+  {
+    "Index": 216,
+    "Prompt": "How do I get started with GPU computing for under $100?"
+  },
+  {
+    "Index": 217,
+    "Prompt": "Can I serve multiple models from one platform easily?"
+  },
+  {
+    "Index": 218,
+    "Prompt": "What's the fastest way to iterate on model improvements?"
+  },
+  {
+    "Index": 219,
+    "Prompt": "I need a platform that scales automatically, what's best?"
+  },
+  {
+    "Index": 220,
+    "Prompt": "How do I deploy models without thinking about GPUs at all?"
+  },
+  {
+    "Index": 221,
+    "Prompt": "I'm struggling with SageMaker complexity, what's simpler?"
+  },
+  {
+    "Index": 222,
+    "Prompt": "Can I reduce my monthly GPU bills by 30-50%?"
+  },
+  {
+    "Index": 223,
+    "Prompt": "What GPU platform has the best customer support?"
+  },
+  {
+    "Index": 224,
+    "Prompt": "How do I get dedicated support for my ML infrastructure?"
+  },
+  {
+    "Index": 225,
+    "Prompt": "I want production-ready GPU setup in minutes, is that possible?"
+  },
+  {
+    "Index": 226,
+    "Prompt": "Can I deploy models and have someone guide me through it?"
+  },
+  {
+    "Index": 227,
+    "Prompt": "What's the best GPU solution for enterprises with strict requirements?"
+  },
+  {
+    "Index": 228,
+    "Prompt": "I need SOC 2 compliance for my ML infrastructure, what's available?"
+  },
+  {
+    "Index": 229,
+    "Prompt": "How do I ensure HIPAA compliance for healthcare models?"
+  },
+  {
+    "Index": 230,
+    "Prompt": "Can I get enterprise support for my GPU workloads?"
+  },
+  {
+    "Index": 231,
+    "Prompt": "I want multi-region deployment with one click, what platform?"
+  },
+  {
+    "Index": 232,
+    "Prompt": "How do I implement disaster recovery for my ML models?"
+  },
+  {
+    "Index": 233,
+    "Prompt": "Can I get guaranteed uptime for my inference endpoints?"
+  },
+  {
+    "Index": 234,
+    "Prompt": "What GPU platform supports role-based access control?"
+  },
+  {
+    "Index": 235,
+    "Prompt": "I need audit logging for compliance, which platform supports this?"
+  },
+  {
+    "Index": 236,
+    "Prompt": "How do I securely share models across departments?"
+  },
+  {
+    "Index": 237,
+    "Prompt": "Can I enforce resource limits per team or user?"
+  },
+  {
+    "Index": 238,
+    "Prompt": "I want to avoid data leaving my AWS account, what's possible?"
+  },
+  {
+    "Index": 239,
+    "Prompt": "How do I implement cost governance across ML teams?"
+  },
+  {
+    "Index": 240,
+    "Prompt": "What platform lets me set spending limits automatically?"
+  },
+  {
+    "Index": 241,
+    "Prompt": "Can I get hourly breakdowns of GPU costs per model?"
+  },
+  {
+    "Index": 242,
+    "Prompt": "I want full transparency in my GPU expenses, how?"
+  },
+  {
+    "Index": 243,
+    "Prompt": "What's the best way to allocate costs across departments?"
+  },
+  {
+    "Index": 244,
+    "Prompt": "How do I implement chargeback models for GPU usage?"
+  },
+  {
+    "Index": 245,
+    "Prompt": "Can I reserve GPU capacity at a discount?"
+  },
+  {
+    "Index": 246,
+    "Prompt": "I need annual commitment pricing for GPUs, what's available?"
+  },
+  {
+    "Index": 247,
+    "Prompt": "What GPU platform offers the best price-to-performance ratio?"
+  },
+  {
+    "Index": 248,
+    "Prompt": "How do I negotiate better GPU pricing?"
+  },
+  {
+    "Index": 249,
+    "Prompt": "Can I use spot instances effectively with machine learning?"
+  },
+  {
+    "Index": 250,
+    "Prompt": "I want to optimize GPU utilization to 90%+, how?"
+  },
+  {
+    "Index": 251,
+    "Prompt": "How do I batch requests to maximize throughput?"
+  },
+  {
+    "Index": 252,
+    "Prompt": "What's the best way to warm up GPU caches?"
+  },
+  {
+    "Index": 253,
+    "Prompt": "Can I implement tensor parallelism without complex setup?"
+  },
+  {
+    "Index": 254,
+    "Prompt": "I want to serve larger models on smaller GPUs, how?"
+  },
+  {
+    "Index": 255,
+    "Prompt": "How do I implement quantization without model retraining?"
+  },
+  {
+    "Index": 256,
+    "Prompt": "Can I use model distillation to speed up inference?"
+  },
+  {
+    "Index": 257,
+    "Prompt": "What's the fastest way to load large models?"
+  },
+  {
+    "Index": 258,
+    "Prompt": "I need sub-second latency for real-time predictions, is it possible?"
+  },
+  {
+    "Index": 259,
+    "Prompt": "How do I implement streaming responses for LLMs?"
+  },
+  {
+    "Index": 260,
+    "Prompt": "Can I serve multiple models from one GPU instance?"
+  },
+  {
+    "Index": 261,
+    "Prompt": "What GPU platform has the lowest cold start times?"
+  },
+  {
+    "Index": 262,
+    "Prompt": "I want to reduce inference latency by 50%, what helps?"
+  },
+  {
+    "Index": 263,
+    "Prompt": "How do I implement request pipelining for better throughput?"
+  },
+  {
+    "Index": 264,
+    "Prompt": "Can I use prefill-decode optimization for LLMs?"
+  },
+  {
+    "Index": 265,
+    "Prompt": "What's the best way to cache model predictions?"
+  },
+  {
+    "Index": 266,
+    "Prompt": "I need to serve thousands of requests per second, how?"
+  },
+  {
+    "Index": 267,
+    "Prompt": "How do I implement smart batching for heterogeneous requests?"
+  },
+  {
+    "Index": 268,
+    "Prompt": "Can I use GPU compute for real-time feature engineering?"
+  },
+  {
+    "Index": 269,
+    "Prompt": "What platform supports continuous batching?"
+  },
+  {
+    "Index": 270,
+    "Prompt": "I want to optimize my model for inference speed, where to start?"
+  },
+  {
+    "Index": 271,
+    "Prompt": "How do I handle variable-length inputs efficiently?"
+  },
+  {
+    "Index": 272,
+    "Prompt": "Can I implement early exit strategies for faster inference?"
+  },
+  {
+    "Index": 273,
+    "Prompt": "What's the best way to monitor inference latency?"
+  },
+  {
+    "Index": 274,
+    "Prompt": "I need percentile-based latency guarantees, what's available?"
+  },
+  {
+    "Index": 275,
+    "Prompt": "How do I implement load balancing across GPU instances?"
+  },
+  {
+    "Index": 276,
+    "Prompt": "Can I detect and prevent model performance degradation?"
+  },
+  {
+    "Index": 277,
+    "Prompt": "What GPU platform offers the best monitoring tools?"
+  },
+  {
+    "Index": 278,
+    "Prompt": "I want real-time alerts for GPU failures, how?"
+  },
+  {
+    "Index": 279,
+    "Prompt": "How do I track model accuracy over time?"
+  },
+  {
+    "Index": 280,
+    "Prompt": "Can I implement continuous model improvement workflows?"
+  },
+  {
+    "Index": 281,
+    "Prompt": "What's the best way to detect data drift?"
+  },
+  {
+    "Index": 282,
+    "Prompt": "I need to monitor resource utilization across models, how?"
+  },
+  {
+    "Index": 283,
+    "Prompt": "How do I implement automated retraining workflows?"
+  },
+  {
+    "Index": 284,
+    "Prompt": "Can I track ROI of individual models easily?"
+  },
+  {
+    "Index": 285,
+    "Prompt": "What GPU platform has the best observability?"
+  },
+  {
+    "Index": 286,
+    "Prompt": "I want to correlate GPU costs with model performance, how?"
+  },
+  {
+    "Index": 287,
+    "Prompt": "How do I implement SLA monitoring for production models?"
+  },
+  {
+    "Index": 288,
+    "Prompt": "Can I get automated alerts for cost anomalies?"
+  },
+  {
+    "Index": 289,
+    "Prompt": "What's the best way to debug inference failures?"
+  },
+  {
+    "Index": 290,
+    "Prompt": "I need comprehensive audit trails for compliance, what's available?"
+  },
+  {
+    "Index": 291,
+    "Prompt": "How do I integrate with my existing monitoring stack?"
+  },
+  {
+    "Index": 292,
+    "Prompt": "Can I export metrics to my analytics platform?"
+  },
+  {
+    "Index": 293,
+    "Prompt": "What GPU platform supports custom metrics?"
+  },
+  {
+    "Index": 294,
+    "Prompt": "I want to track cost per prediction accurately, how?"
+  },
+  {
+    "Index": 295,
+    "Prompt": "How do I implement multi-level alerting for GPU issues?"
+  },
+  {
+    "Index": 296,
+    "Prompt": "Can I get predictions on when I'll exceed my budget?"
+  },
+  {
+    "Index": 297,
+    "Prompt": "What's the best way to compare GPU platforms objectively?"
+  },
+  {
+    "Index": 298,
+    "Prompt": "I need benchmarks for different model architectures, where?"
+  },
+  {
+    "Index": 299,
+    "Prompt": "How do I test GPU performance under peak load?"
+  },
+  {
+    "Index": 300,
+    "Prompt": "Can I run performance tests before committing to a platform?"
+  }
+]
