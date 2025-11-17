@@ -43,7 +43,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                         # Fetch OTP from SEPARATE Boomlify browser session
                         print("[INFO] Fetching OTP from separate Boomlify session...")
                         debug()
-                        lr=handle_login()
+                        lr=handle_login(sb, email, sb_password)
                         
                         
                         debug()
@@ -321,9 +321,6 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     trigger_reopen = True
                                     force_login_on_reopen = True
                                     continue
-                                else:
-                                    debug()
-                                    prompts_until_new_chat-=1
                             
                                 # Wait finished + extra
                                 try:
@@ -428,10 +425,14 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     debug()
                                     sb.sleep(3)                                                        
                                     print(f"Clicking on try again button with better model")
-                                    sb.cdp.scroll_into_view('/html/body/div[1]/div/div/div/main/div/div/div[1]/div/div/div[2]/article[12]/div/div/div[2]/div/span/button/div')
-                                    sb.cdp.click('/html/body/div[1]/div/div/div/main/div/div/div[1]/div/div/div[2]/article[12]/div/div/div[2]/div/span/button/div')
+                                    # First element
+                                    sb.cdp.wait_for_element_visible('//*[@id="radix-_r_sc_"]', timeout=10)
+                                    sb.cdp.click('//*[@id="radix-_r_sc_"]')
+                                    debug()
                                     sb.sleep(3)
-                                    sb.cdp.click('/html/body/div[4]/div/span[3]/div/div[2]/div')
+                                    # Second element
+                                    sb.cdp.wait_for_element_visible('//*[@id="radix-_r_sd_"]/span[3]/div/div[2]/div', timeout=10)
+                                    sb.cdp.click('//*[@id="radix-_r_sd_"]/span[3]/div/div[2]/div')
                                     sb.sleep(45)
                                     debug()
                                     sb.sleep(6)
@@ -447,6 +448,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     if len(hrefs)>0:
                                         debug()
                                         print(f"[🟠✅SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
+                                        prompts_until_new_chat-=1
                                         if_links_appear=True
                                         results.append({
                                         "prompt": prompt_raw,
@@ -459,6 +461,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     elif count==if_links_do_not_appear_retry:
                                         debug()
                                         print(f"[☑️SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
+                                        prompts_until_new_chat-=1
                                         results.append({
                                         "prompt": prompt_raw,
                                         "appeared_links":hrefs,
@@ -484,6 +487,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     debug()
                                     if_links_appear=True
                                     print(f"[✅✅SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
+                                    prompts_until_new_chat-=1
                                     results.append({
                                     "prompt": prompt_raw,
                                     "appeared_links":hrefs,
