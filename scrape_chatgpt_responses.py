@@ -424,7 +424,8 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 sleep_dbg(sb, a=8, b=15, label="between prompts")
                                 if len(hrefs)==0:
                                     debug()
-                                    sb.cdp.scroll_into_view('//button[@type="button"][@aria-haspopup="menu"][@aria-expanded="false"][@data-state="closed"]')
+                                    sb.cdp.scroll_down(300)
+                                    sb.sleep(5)
                                     debug()
                                     save_ss(sb, "Retry better model first element")
                                     sb.sleep(3)                                                        
@@ -483,7 +484,6 @@ def scrape_chatgpt_responses(prompts,email,password):
                                         count+=1
                                         save_ss(sb, "Before clicking New chat since links appeared are zero.")
                                         sb.sleep(2)
-                                        sb.cdp.scroll_into_view('/html/body/div[1]/div/div/div[1]/div/div[2]/nav/aside/a[1]/div[1]/div[2]/div')
                                         sb.cdp.click('/html/body/div[1]/div/div/div[1]/div/div[2]/nav/aside/a[1]/div[1]/div[2]/div')
 
                                         sb.sleep(9)
