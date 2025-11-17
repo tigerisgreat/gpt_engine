@@ -424,16 +424,20 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 sleep_dbg(sb, a=8, b=15, label="between prompts")
                                 if len(hrefs)==0:
                                     debug()
+                                    save_ss(sb, "Retry better model first element")
                                     sb.sleep(3)                                                        
                                     print(f"Clicking on try again button with better model")
                                     # First element
-                                    sb.cdp.wait_for_element_visible('//*[@id="radix-_r_sc_"]', timeout=10)
-                                    sb.cdp.click('//*[@id="radix-_r_sc_"]')
+                                    sb.cdp.wait_for_element_visible('//button[@type="button"][@aria-haspopup="menu"][@aria-expanded="false"][@data-state="closed"]', timeout=10)
+                                    save_ss(sb,"Retry better model first element1.2")
+                                    sb.cdp.click('//button[@type="button"][@aria-haspopup="menu"][@aria-expanded="false"][@data-state="closed"]')
                                     debug()
+                                    save_ss(sb, "Retry better model second element2.1")
                                     sb.sleep(3)
                                     # Second element
-                                    sb.cdp.wait_for_element_visible('//*[@id="radix-_r_sd_"]/span[3]/div/div[2]/div', timeout=10)
-                                    sb.cdp.click('//*[@id="radix-_r_sd_"]/span[3]/div/div[2]/div')
+                                    sb.cdp.wait_for_element_visible('//div[@role="menuitem"][@data-orientation="vertical"][@tabindex="0"]', timeout=10)
+                                    sb.cdp.click('//div[@role="menuitem"][@data-orientation="vertical"][@tabindex="0"]')
+                                    save_ss(sb)
                                     sb.sleep(45)
                                     debug()
                                     sb.sleep(6)
@@ -546,4 +550,3 @@ def scrape_chatgpt_responses(prompts,email,password):
     print("=" * 80 + "\n")
     debug()
     return results
-
