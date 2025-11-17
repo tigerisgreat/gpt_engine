@@ -305,7 +305,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 sb.sleep(3)
                                 debug()
                                 is_prompt_sending_successful=send_prompt(sb)
-                                sb.sleep(20)
+                                sb.sleep(45)
                                 debug()
                                 # Send errors
                                 if is_prompt_sending_successful==False:
