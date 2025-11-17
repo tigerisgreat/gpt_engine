@@ -457,6 +457,17 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     sb.sleep(45)
                                     debug()
                                     sb.sleep(6)
+                                    elems = []
+                                    for sel in response_selectors:
+                                        debug()
+                                        try:
+                                            debug()
+                                            elems = sb.cdp.find_all(sel, timeout=60)
+                                            if elems:
+                                                break
+                                        except Exception:
+                                            debug()
+                                            pass
                                     latest_elem = elems[-1]               # This is the SeleniumBase element object
                                     latest_html = latest_elem.get_html()  # HTML string for text extraction
                                     # Extract plain text from the HTML
