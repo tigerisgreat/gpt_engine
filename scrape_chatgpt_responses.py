@@ -424,6 +424,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 sleep_dbg(sb, a=8, b=15, label="between prompts")
                                 if len(hrefs)==0:
                                     debug()
+                                    sb.scroll_into_view("#prompt-textarea")
                                     save_ss(sb, "Retry better model first element")
                                     sb.sleep(3)                                                        
                                     print(f"Clicking on try again button with better model")
@@ -476,6 +477,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     })
                                         i += 1
                                     else:
+                                        debug()
                                         if_links_appear=False
                                         count+=1
                                         save_ss(sb, "Before clicking New chat since links appeared are zero.")
