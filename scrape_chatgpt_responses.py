@@ -424,7 +424,8 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 sleep_dbg(sb, a=8, b=15, label="between prompts")
                                 if len(hrefs)==0:
                                     debug()
-                                    sb.scroll_into_view("#prompt-textarea")
+                                    sb.cdp.scroll_into_view('//button[@type="button"][@aria-haspopup="menu"][@aria-expanded="false"][@data-state="closed"]')
+                                    debug()
                                     save_ss(sb, "Retry better model first element")
                                     sb.sleep(3)                                                        
                                     print(f"Clicking on try again button with better model")
