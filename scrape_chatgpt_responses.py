@@ -426,18 +426,38 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 sleep_dbg(sb, a=8, b=15, label="between prompts")
                                 if len(hrefs)==0:
                                     debug()
-                                    if_links_appear=False
-                                    count+=1
-                                    save_ss(sb, "Before clicking New chat since links appeared are zero.")
-                                    sb.sleep(2)
-                                    sb.cdp.scroll_into_view('/html/body/div[1]/div/div/div[1]/div/div[2]/nav/aside/a[1]/div[1]/div[2]/div')
-                                    sb.cdp.click('/html/body/div[1]/div/div/div[1]/div/div[2]/nav/aside/a[1]/div[1]/div[2]/div')
-
-                                    sb.sleep(9)
-                                    save_ss(sb, "After clicking New chat since links appeared are zero.")
-                                    is_search_true=False
-                                    
-                                    if count==if_links_do_not_appear_retry:
+                                    sb.sleep(3)                                                        
+                                    print(f"Clicking on try again button with better model")
+                                    sb.cdp.scroll_into_view('/html/body/div[1]/div/div/div/main/div/div/div[1]/div/div/div[2]/article[12]/div/div/div[2]/div/span/button/div')
+                                    sb.cdp.click('/html/body/div[1]/div/div/div/main/div/div/div[1]/div/div/div[2]/article[12]/div/div/div[2]/div/span/button/div')
+                                    sb.sleep(3)
+                                    sb.cdp.click('/html/body/div[4]/div/span[3]/div/div[2]/div')
+                                    sb.sleep(45)
+                                    debug()
+                                    sb.sleep(6)
+                                    latest_elem = elems[-1]               # This is the SeleniumBase element object
+                                    latest_html = latest_elem.get_html()  # HTML string for text extraction
+                                    # Extract plain text from the HTML
+                                    text = sb.get_beautiful_soup(latest_html).text.strip().replace("\n\n\n", "\n\n")
+                                    debug()                                   
+                                    links = latest_elem.query_selector_all("a")
+                                    debug()
+                                    hrefs = [link.get_attribute("href") for link in links]
+                                    sb.sleep(3)
+                                    if len(hrefs)>0:
+                                        debug()
+                                        print(f"[🟠✅SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
+                                        if_links_appear=True
+                                        results.append({
+                                        "prompt": prompt_raw,
+                                        "appeared_links":hrefs,
+                                        "response": text,
+                                        "screenshot": screenshot_path,
+                                        "captcha_type": None,
+                                    })
+                                        i += 1                               
+                                    elif count==if_links_do_not_appear_retry:
+                                        debug()
                                         print(f"[☑️SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
                                         results.append({
                                         "prompt": prompt_raw,
@@ -448,12 +468,22 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     })
                                         i += 1
                                     else:
-                                        print(f"[⚠️RETRYING] Since there are zero links which appeared in the response.")
+                                        if_links_appear=False
+                                        count+=1
+                                        save_ss(sb, "Before clicking New chat since links appeared are zero.")
+                                        sb.sleep(2)
+                                        sb.cdp.scroll_into_view('/html/body/div[1]/div/div/div[1]/div/div[2]/nav/aside/a[1]/div[1]/div[2]/div')
+                                        sb.cdp.click('/html/body/div[1]/div/div/div[1]/div/div[2]/nav/aside/a[1]/div[1]/div[2]/div')
+
+                                        sb.sleep(9)
+                                        save_ss(sb, "After clicking New chat since links appeared are zero.")
+                                        is_search_true=False
+                                        print(f"[⚠️RETRYING {count}] Since there are zero links which appeared in the response.")
                                     debug()
                                 else:
                                     debug()
                                     if_links_appear=True
-                                    print(f"[✅SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
+                                    print(f"[✅✅SUCCESS] Response {i+1} received (%d chars)\n" % len(text))
                                     results.append({
                                     "prompt": prompt_raw,
                                     "appeared_links":hrefs,
