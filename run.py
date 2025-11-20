@@ -30,8 +30,11 @@ is_password_reset_required=False
 with open("prompts.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
-# Get prompts with their indices
-all_prompts = [(int(item["Index"]), sanitize_prompt(item["Prompt"])) for item in data]
+# This works with your current file format
+all_prompts = [(int(index), sanitize_prompt(prompt)) for index, prompt in data.items()]
+
+print(f"✅ Loaded {len(all_prompts)} prompts")
+print(f"Sample: {all_prompts[0]}")  # (1, 'What is the best layer 2...')
 
 prompts_per_batch = max(1, len(all_prompts) // max(1, total_batches))
 start_idx = (batch_number - 1) * prompts_per_batch
@@ -76,3 +79,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
