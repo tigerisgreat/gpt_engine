@@ -54,7 +54,7 @@ def get_sheet():
 # Get an available email id, make is_in_use=TRUE
 def get_available_account():
     debug()
-    num = random.randint(3, 60)
+    num = random.randint(3, 180)
     print(f"Waiting {num} seconds before picking an account.")
     time.sleep(num)
     
@@ -165,3 +165,4 @@ def reset_all_accounts():
     for i in range(len(records)):
         sheet.update_cell(i + 2, 4, 'FALSE')
     print("[ACCESS-KEYS] All accounts reset to FREE")
+
