@@ -58,6 +58,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                 lr = True
                             else:
                                 debug()
+                                lr="Failed to get OTP"
                                 trigger_reopen = True
                         if lr=="password_incorrect":
                                 debug()
@@ -109,7 +110,7 @@ def scrape_chatgpt_responses(prompts,email,password):
                                     #is pop ups visible?
                                     popups=is_popups_visible(sb)
                                     lr= True
-                        else:
+                        if lr=="Failed to get OTP":
                             debug()
                             print("[ERROR] Failed to get OTP code")
                             trigger_reopen = True
